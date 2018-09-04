@@ -40,4 +40,4 @@ So given a hue of 90 the you'll get back an array with two keys, "primary", and 
 You may add as many hue values from 0 to < 360 as you want. You can add as many named configs as you want.
 
 ### Thank you.
-Bootstrapped using the [https://github.com/buonzz/composer-library-template](Composer Library Template). 
+Bootstrapped using the [Composer Library Template](https://github.com/buonzz/composer-library-template). 
