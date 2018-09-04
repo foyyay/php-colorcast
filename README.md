@@ -1,15 +1,43 @@
-Composer Library Template
-=========================
+ColorCast
+=========
 
-If you are trying to create a new PHP Composer library, whether it will be going to submitted to packagist.org or just in your Github account, this template of files will surely help you make the process a lot easier and faster.
+Given a configuration of hue points to named saturation and value entries you can provide a hue and the saturation and value will be interpolated and the resulting color returned as a hex string.
 
-Features
---------
+Install
 
-* PSR-4 autoloading compliant structure
-* Unit-Testing with PHPUnit
-* Comprehensive Guides and tutorial
-* Easy to use to any framework or even a plain php file
+```
+composer require foyyay/colorcast;
+```
 
+Use
 
-I encourage that you put more information on this readme file instead of leaving it as is. See [http://www.darwinbiler.com/designing-and-making-the-readme-file-for-your-github-repository/](How to make a README file) for more info.
+```
+use Foyyay\ColorCast\ColorCast;
+
+$caster = new ColorCast(config);
+$colors = $caster->fromHue(90);
+// or
+$colors = $caster->fromColor('#87d936');
+```
+
+An example config could look like:
+
+```PHP
+$config = [
+    "0" => [
+        "primary" => ["saturation" => 80, "value" => 70],
+        "accent" => ["saturation" => 75, "value" => 85],
+    ],
+    "20" => [
+        "primary" => ["saturation" => 40, "value" => 50],
+        "accent" => ["saturation" => 80, "value" => 90],
+    ],
+];
+```
+
+So given a hue of 90 the you'll get back an array with two keys, "primary", and "accent". The hue for both colors will be 90, the saturation for primary will be 60 and the value will be 60.
+
+You may add as many hue values from 0 to < 360 as you want. You can add as many named configs as you want.
+
+### Thank you.
+Bootstrapped using the [https://github.com/buonzz/composer-library-template](Composer Library Template). 
